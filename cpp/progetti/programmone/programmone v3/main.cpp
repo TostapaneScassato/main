@@ -6,7 +6,9 @@
 using namespace std;
 
 #ifdef _WIN32
+   #define byte win_byte_override
    #include <windows.h>
+   #undef byte
    #define OS "windows"
    #define DORMI(periodo) Sleep(periodo)
    #define CLEAR() system("cls")
@@ -150,6 +152,7 @@ void conversioni() {
 
          if(CINCHECK("Inserire un numero")) {
             conversioni();
+            return;
             break;
          }
 
@@ -159,20 +162,24 @@ void conversioni() {
             cout << unitaOriginale << "C e' uguale a " << unitaOriginale * 9/5 + 32 << "F" << endl;
             PAUSE();
             conversioni();
+            return;
             break;
          } else if (sceltaCHAR == 'K' || sceltaCHAR == 'k')  {
             cout << unitaOriginale << "C e' uguale a " << unitaOriginale + 273.15 << "K" << endl;
             PAUSE();
             conversioni();
+            return;
             break;
          } else if (sceltaCHAR == 'R' || sceltaCHAR == 'r') {
             cout << unitaOriginale << "C e' uguale a " << (unitaOriginale + 273.15) * 9/5 << "R" << endl;
             PAUSE();
             conversioni();
+            return;
             break;
          } else {
             ERRORE("Scegliere un opzione accettabile");
             conversioni();
+            return;
             break;
          }
          
@@ -184,6 +191,7 @@ void conversioni() {
 
          if(CINCHECK("Inserire un numero")) {
             conversioni();
+            return;
             break;
          }
 
@@ -193,20 +201,24 @@ void conversioni() {
             cout << unitaOriginale << "F e' uguale a " << (unitaOriginale - 32) * 5/9 << "C" << endl;
             PAUSE();
             conversioni();
+            return;
             break;
          } else if (sceltaCHAR == 'K' || sceltaCHAR == 'k')  {
             cout << unitaOriginale << "F e' uguale a " << (unitaOriginale + 459.67) * 5/9 << "K" << endl;
             PAUSE();
             conversioni();
+            return;
             break;
          } else if (sceltaCHAR == 'R' || sceltaCHAR == 'r') {
             cout << unitaOriginale << "F e' uguale a " << unitaOriginale + 459.67 << "R" << endl;
             PAUSE();
             conversioni();
+            return;
             break;
          } else {
             ERRORE("Scegliere un opzione accettabile");
             conversioni();
+            return;
             break;
          }
          
@@ -218,6 +230,7 @@ void conversioni() {
 
          if(CINCHECK("Inserire un numero")) {
             conversioni();
+            return;
             break;
          }
 
@@ -227,20 +240,24 @@ void conversioni() {
             cout << unitaOriginale << "K e' uguale a " << unitaOriginale - 273.15 << "C" << endl;
             PAUSE();
             conversioni();
+            return;
             break;
          } else if (sceltaCHAR == 'F' || sceltaCHAR == 'f')  {
             cout << unitaOriginale << "K e' uguale a " << unitaOriginale * 9/5 - 459.67 << "F" << endl;
             PAUSE();
             conversioni();
+            return;
             break;
          } else if (sceltaCHAR == 'R' || sceltaCHAR == 'r') {
             cout << unitaOriginale << "K e' uguale a " << unitaOriginale * 9/5 << "R" << endl;
             PAUSE();
             conversioni();
+            return;
             break;
          } else {
             ERRORE("Scegliere un opzione accettabile");
             conversioni();
+            return;
             break;
          }
          
@@ -252,6 +269,7 @@ void conversioni() {
 
          if(CINCHECK("Inserire un numero")) {
             conversioni();
+            return;
             break;
          }
 
@@ -261,20 +279,24 @@ void conversioni() {
             cout << unitaOriginale << "R e' uguale a " << unitaOriginale * 5/9 - 273.15 << "C" << endl;
             PAUSE();
             conversioni();
+            return;
             break;
          } else if (sceltaCHAR == 'F' || sceltaCHAR == 'f')  {
             cout << unitaOriginale << "R e' uguale a " << unitaOriginale - 459.67 << "F" << endl;
             PAUSE();
             conversioni();
+            return;
             break;
          } else if (sceltaCHAR == 'K' || sceltaCHAR == 'k') {
             cout << unitaOriginale << "R e' uguale a " << unitaOriginale * 5/9 << "K" << endl;
             PAUSE();
             conversioni();
+            return;
             break;
          } else {
             ERRORE("Scegliere un opzione accettabile");
             conversioni();
+            return;
             break;
          }
          
@@ -283,6 +305,7 @@ void conversioni() {
       default:
          ERRORE("Selezionare un'opzione accettabile");
          conversioni();
+         return;
          break;
       }
       break;
@@ -296,6 +319,7 @@ void conversioni() {
    
          if(CINCHECK("Inserire un numero")) {
             conversioni();
+            return;
          }
    
          cout << "In che unita' convertire? (Lb, St, Slug, Tal, OzT): "; cin >> sceltaSTR;
@@ -304,30 +328,36 @@ void conversioni() {
             cout << unitaOriginale << "Kg e' uguale a " << unitaOriginale * 2.20462 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else if (sceltaSTR == "St" || sceltaSTR == "st") {
             cout << unitaOriginale << "Kg e' uguale a " << unitaOriginale / 6.35029 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else if (sceltaSTR == "Slug" || sceltaSTR == "slug") {
             cout << unitaOriginale << "Kg e' uguale a " << unitaOriginale / 14.5939 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else if (sceltaSTR == "Tal" || sceltaSTR == "tal") {
             cout << unitaOriginale << "Kg e' uguale a " << unitaOriginale / 32.3 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else if (sceltaSTR == "OzT" || sceltaSTR == "ozt") {
             cout << unitaOriginale << "Kg e' uguale a " << unitaOriginale / 0.0311035 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else {
             ERRORE("Scegliere un'opzione accettabile");
             conversioni();
+            return;
 
          }
 
@@ -336,6 +366,7 @@ void conversioni() {
    
          if(CINCHECK("Inserire un numero")) {
             conversioni();
+            return;
          }
    
          cout << "In che unita' convertire? (Kg, St, Slug, Tal, OzT): "; cin >> sceltaSTR;
@@ -344,30 +375,36 @@ void conversioni() {
             cout << unitaOriginale << "Lb e' uguale a " << unitaOriginale * 0.453592 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else if (sceltaSTR == "St" || sceltaSTR == "st") {
             cout << unitaOriginale << "Lb e' uguale a " << unitaOriginale / 14 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else if (sceltaSTR == "Slug" || sceltaSTR == "slug") {
             cout << unitaOriginale << "Lb e' uguale a " << unitaOriginale * 0.031081 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else if (sceltaSTR == "Tal" || sceltaSTR == "tal") {
             cout << unitaOriginale << "Lb e' uguale a " << unitaOriginale * 0.0140486 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else if (sceltaSTR == "OzT" || sceltaSTR == "ozt") {
             cout << unitaOriginale << "Lb e' uguale a " << unitaOriginale * 14.5833 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else {
             ERRORE("Scegliere un'opzione accettabile");
             conversioni();
+            return;
          }
 
       } else if   (sceltaSTR == "St"   || sceltaSTR == "st") {
@@ -376,6 +413,7 @@ void conversioni() {
 
          if(CINCHECK("Inserire un numero")) {
             conversioni();
+            return;
          }
 
          cout << "In che unita' convertire? (Kg, Lb, Slug, Tal, OzT): "; cin >> sceltaSTR;
@@ -384,30 +422,36 @@ void conversioni() {
             cout << unitaOriginale << "St e' uguale a " << unitaOriginale * 6.35029 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else if (sceltaSTR == "Lb" || sceltaSTR == "lb") {
             cout << unitaOriginale << "St e' uguale a " << unitaOriginale * 14 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else if (sceltaSTR == "Slug" || sceltaSTR == "slug") {
             cout << unitaOriginale << "St e' uguale a " << unitaOriginale * 0.435923 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else if (sceltaSTR == "Tal" || sceltaSTR == "tal") {
             cout << unitaOriginale << "St e' uguale a " << unitaOriginale * 0.196594 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else if (sceltaSTR == "OzT" || sceltaSTR == "ozt") {
             cout << unitaOriginale << "St e' uguale a " << unitaOriginale * 204.166 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else {
             ERRORE("Scegliere un'opzione accettabile");
             conversioni();
+            return;
 
          }
       } else if   (sceltaSTR == "Slug" || sceltaSTR == "slug") {
@@ -416,6 +460,7 @@ void conversioni() {
 
          if(CINCHECK("Inserire un numero")) {
             conversioni();
+            return;
          }
 
          cout << "In che unita' convertire? (Kg, Lb, St, Tal, OzT): "; cin >> sceltaSTR;
@@ -424,30 +469,36 @@ void conversioni() {
             cout << unitaOriginale << "Slug e' uguale a " << unitaOriginale * 14.5939 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else if (sceltaSTR == "Lb" || sceltaSTR == "lb") {
             cout << unitaOriginale << "Slug e' uguale a " << unitaOriginale * 32.174 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else if (sceltaSTR == "St" || sceltaSTR == "st") {
             cout << unitaOriginale << "Slug e' uguale a " << unitaOriginale / 2.294 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else if (sceltaSTR == "Tal" || sceltaSTR == "tal") {
             cout << unitaOriginale << "Slug e' uguale a " << unitaOriginale * 0.451822 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else if (sceltaSTR == "OzT" || sceltaSTR == "ozt") {
             cout << unitaOriginale << "Slug e' uguale a " << unitaOriginale * 469.104 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else {
             ERRORE("Scegliere un'opzione accettabile");
             conversioni();
+            return;
 
          }
       } else if   (sceltaSTR == "Tal"  || sceltaSTR == "tal") {
@@ -456,6 +507,7 @@ void conversioni() {
 
          if(CINCHECK("Inserire un numero")) {
             conversioni();
+            return;
          }
 
          cout << "In che unita' convertire? (Kg, Lb, St, Slug, OzT): "; cin >> sceltaSTR;
@@ -464,30 +516,36 @@ void conversioni() {
             cout << unitaOriginale << "Tal e' uguale a " << unitaOriginale * 32.3 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else if (sceltaSTR == "Lb" || sceltaSTR == "Lb") {
             cout << unitaOriginale << "Tal e' uguale a " << unitaOriginale * 71.215 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else if (sceltaSTR == "St" || sceltaSTR == "st") {
             cout << unitaOriginale << "Tal e' uguale a " << unitaOriginale * 5.0868 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else if (sceltaSTR == "Slug" || sceltaSTR == "Slug") {
             cout << unitaOriginale << "Tal e' uguale a " << unitaOriginale * 2.213 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else if (sceltaSTR == "OzT" || sceltaSTR == "ozt") {
             cout << unitaOriginale << "Tal e' uguale a " << unitaOriginale / 1038.85 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else {
             ERRORE("Scegliere un'opzione accettabile");
             conversioni();
+            return;
 
          }
       } else if   (sceltaSTR == "OzT"  || sceltaSTR == "Ozt"   || sceltaSTR == "ozt") {
@@ -496,6 +554,7 @@ void conversioni() {
 
          if(CINCHECK("Inserire un numero")) {
             conversioni();
+            return;
          }
 
          cout << "In che unita' convertire? (Kg, Lb, St, Slug, Tal): "; cin >> sceltaSTR;
@@ -504,36 +563,43 @@ void conversioni() {
             cout << unitaOriginale << "OzT e' uguale a " << unitaOriginale * 0.0311035 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else if (sceltaSTR == "Lb" || sceltaSTR == "lb") {
             cout << unitaOriginale << "OzT e' uguale a " << unitaOriginale / 14.5833 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else if (sceltaSTR == "St" || sceltaSTR == "st") {
             cout << unitaOriginale << "OzT e' uguale a " << unitaOriginale / 204.166 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else if (sceltaSTR == "Slug" || sceltaSTR == "slug") {
             cout << unitaOriginale << "OzT e' uguale a " << unitaOriginale / 469.104 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else if (sceltaSTR == "Tal" || sceltaSTR == "tal") {
             cout << unitaOriginale << "OzT e' uguale a " << unitaOriginale / 1038.85 << sceltaCHAR << endl;
             PAUSE();
             conversioni();
+            return;
 
          } else {
             ERRORE("Scegliere un'opzione accettabile");
             conversioni();
+            return;
 
          }
       } else {
 
          ERRORE("Selezionare un'opzione accettabile");
          conversioni();
+         return;
       }
       break;
 
@@ -546,6 +612,7 @@ void conversioni() {
 
          if (CINCHECK("Inserire un numero")) {
             conversioni();
+            return;
          }
 
          cout << "In che valuta convertire (USD, JPY, RUB): "; cin >> sceltaSTR;
@@ -554,23 +621,28 @@ void conversioni() {
             cout << unitaOriginale << " Euro equivalgono a " << unitaOriginale * 1.17 << " Dollari americani" << endl;
             PAUSE();
             conversioni();
+            return;
          } else if (sceltaSTR == "JPY" || sceltaSTR == "Jpy" || sceltaSTR == "jpy") {
             cout << unitaOriginale << " Euro equivalgono a " << unitaOriginale * 172 << " Yen giapponesi" << endl;
             PAUSE();
             conversioni();
+            return;
          } else if (sceltaSTR == "RUB" || sceltaSTR == "Rub" || sceltaSTR == "rub") {
             cout << unitaOriginale << " Euro equivalgono a " << unitaOriginale * 91.43 << " Rubli russi" << endl;
             PAUSE();
             conversioni();
+            return;
          } else {
             ERRORE("Scegliere un'opzione accettabile");
             conversioni();
+            return;
          }
       } else if   (sceltaSTR == "USD" || sceltaSTR == "Usd" || sceltaSTR == "usd") {
          cout << "Inserire la quantita' di Dollari statunitensi da convertire: "; cin >> unitaOriginale;
 
          if (CINCHECK("Inserire un numero")) {
             conversioni();
+            return;
          }
 
          cout << "In che valuta convertire (EUR, JPY, RUB): "; cin >> sceltaSTR;
@@ -579,23 +651,28 @@ void conversioni() {
             cout << unitaOriginale << " Dollari statunitensi equivalgono a " << unitaOriginale * 0.86 << " Euro" << endl;
             PAUSE();
             conversioni();
+            return;
          } else if (sceltaSTR == "JPY" || sceltaSTR == "Jpy" || sceltaSTR == "jpy") {
             cout << unitaOriginale << " Dollari statunitensi equivalgono a " << unitaOriginale * 147 << " Yen" << endl;
             PAUSE();
             conversioni();
+            return;
          } else if (sceltaSTR == "RUB" || sceltaSTR == "Rub" || sceltaSTR == "rub") {
             cout << unitaOriginale << " Dollari statunitensi equivalgono a " << unitaOriginale * 78.20 << " Rubli russi" << endl;
             PAUSE();
             conversioni();
+            return;
          } else {
             ERRORE("Scegliere un'opzione accettabile");
             conversioni();
+            return;
          }
       } else if   (sceltaSTR == "JPY" || sceltaSTR == "Jpy" || sceltaSTR == "jpy") {
          cout << "Inserire la quantita' di Yen da convertire: "; cin >> unitaOriginale;
 
          if (CINCHECK("Inserire un numero")) {
             conversioni();
+            return;
          }
 
          cout << "In che valuta convertire (EUR, USD, RUB): "; cin >> sceltaSTR;
@@ -604,23 +681,28 @@ void conversioni() {
             cout << unitaOriginale << " Yen equivale a " << unitaOriginale * 1.17 << " Euro" << endl;
             PAUSE();
             conversioni();
+            return;
          } else if (sceltaSTR == "USD" || sceltaSTR == "Usd" || sceltaSTR == "usd") {
             cout << unitaOriginale << " Yen equivale a " << unitaOriginale * 172 << " Dollari statunitensi" << endl;
             PAUSE();
             conversioni();
+            return;
          } else if (sceltaSTR == "RUB" || sceltaSTR == "Rub" || sceltaSTR == "rub") {
             cout << unitaOriginale << " Yen equivale a " << unitaOriginale * 91.43 << " Rubli russi" << endl;
             PAUSE();
             conversioni();
+            return;
          } else {
             ERRORE("Scegliere un'opzione accettabile");
             conversioni();
+            return;
          }
       } else if (sceltaSTR == "EUR" || sceltaSTR == "Eur" || sceltaSTR == "eur") {
          cout << "Inserire la quantita' di Euro da convertire: "; cin >> unitaOriginale;
 
          if (CINCHECK("Inserire un numero")) {
             conversioni();
+            return;
          }
 
          cout << "In che valuta convertire (USD, JPY, RUB): "; cin >> sceltaSTR;
@@ -629,27 +711,33 @@ void conversioni() {
             cout << unitaOriginale << " Euro equivale a " << unitaOriginale * 1.17 << " Dollari americani" << endl;
             PAUSE();
             conversioni();
+            return;
          } else if (sceltaSTR == "JPY" || sceltaSTR == "Jpy" || sceltaSTR == "jpy") {
             cout << unitaOriginale << " Euro equivale a " << unitaOriginale * 172 << " Yen giapponesi" << endl;
             PAUSE();
             conversioni();
+            return;
          } else if (sceltaSTR == "RUB" || sceltaSTR == "Rub" || sceltaSTR == "rub") {
             cout << unitaOriginale << " Euro equivale a " << unitaOriginale * 91.43 << " Rubli russi" << endl;
             PAUSE();
             conversioni();
+            return;
          } else {
             ERRORE("Scegliere un'opzione accettabile");
             conversioni();
+            return;
          }
       }
    
    case 0:
       PURO("Verrai reindirizzato al menu principale");
       menuPrincipale();
+      return;
       break;
    default:
       ERRORE("Selezionare un'opzione accettabile");
       conversioni();
+      return;
       break;
    }
 }
@@ -681,6 +769,7 @@ void calcolatrice() {
 
          if (CINCHECK("Inserire un numero")) {
             calcolatrice();
+            return;
             break;
          }
          
@@ -704,6 +793,7 @@ void calcolatrice() {
             cout << endl << "Il risultato e' " << risultato << endl;
             PAUSE();
             calcolatrice();
+            return;
             break;
          }
          DEBUG("Risultato parziale = " + to_string(risultato));
@@ -719,6 +809,7 @@ void calcolatrice() {
       cout << endl << base << "^" << esponente << " risulta " << pow(base, esponente) << endl;
       PAUSE();
       calcolatrice();
+      return;
       break;
 
    case 3:
@@ -729,12 +820,14 @@ void calcolatrice() {
       if (indice < 0)  {
          ATTENZIONE("Questa calcolatrice non supporta numeri immaginari");
          calcolatrice();
+         return;
          break;
       }
 
       cout << endl << "Questa radice ha come risultato " << pow(base, 1/indice) << endl;
       PAUSE();
       calcolatrice();
+      return;
       break;
 
    case 4:
@@ -743,6 +836,7 @@ void calcolatrice() {
       
       if (CINCHECK("Inserire un numero")) {
          calcolatrice();
+         return;
          break;
       }
       risultato = 1;
@@ -755,6 +849,7 @@ void calcolatrice() {
       
       PAUSE();
       calcolatrice();
+      return;
       break;
 
    case 5:
@@ -763,12 +858,14 @@ void calcolatrice() {
 
       if(CINCHECK("Inserire un numero")) {
          calcolatrice();
+         return;
          break;
       }
       
       cout << endl << campione << "% = " << campione/100.0 << endl;
       PAUSE();
       calcolatrice();
+      return;
       break;
 
    case 6:
@@ -777,6 +874,7 @@ void calcolatrice() {
       
       if (CINCHECK("Inserire un numero")) {
          calcolatrice();
+         return;
          break;
       }
 
@@ -788,6 +886,7 @@ void calcolatrice() {
       cout << endl;
       PAUSE();
       calcolatrice();
+      return;
       break;
 
    case 7:
@@ -796,6 +895,7 @@ void calcolatrice() {
 
       if(CINCHECK("Inserire un numero")) {
          calcolatrice();
+         return;
          break;
       }
 
@@ -803,6 +903,7 @@ void calcolatrice() {
 
       PAUSE();
       calcolatrice();
+      return;
       break;
       
    case 8:
@@ -811,6 +912,7 @@ void calcolatrice() {
       
       if(CINCHECK("Inserire un numero"))  {
          calcolatrice();
+         return;
          break;
       }
 
@@ -818,6 +920,7 @@ void calcolatrice() {
 
       PAUSE();
       calcolatrice();
+      return;
       break;
 
    case 9:
@@ -826,6 +929,7 @@ void calcolatrice() {
       
       if(CINCHECK("Inserire un numero"))  {
          calcolatrice();
+         return;
          break;
       }
 
@@ -833,6 +937,7 @@ void calcolatrice() {
       
       PAUSE();
       calcolatrice();
+      return;
       break;
 
    case 10:
@@ -841,6 +946,7 @@ void calcolatrice() {
       
       if(CINCHECK("Inserire un numero"))  {
          calcolatrice();
+         return;
          break;
       }
 
@@ -848,6 +954,7 @@ void calcolatrice() {
       
       PAUSE();
       calcolatrice();
+      return;
       break;
 
    case 11:
@@ -856,6 +963,7 @@ void calcolatrice() {
       
       if(CINCHECK("Inserire un numero"))  {
          calcolatrice();
+         return;
          break;
       }
 
@@ -863,6 +971,7 @@ void calcolatrice() {
       
       PAUSE();
       calcolatrice();
+      return;
       break;
 
    case 12:
@@ -871,6 +980,7 @@ void calcolatrice() {
       
       if(CINCHECK("Inserire un numero"))  {
          calcolatrice();
+         return;
          break;
       }
 
@@ -878,6 +988,7 @@ void calcolatrice() {
       
       PAUSE();
       calcolatrice();
+      return;
       break;
 
    case 13:
@@ -886,6 +997,7 @@ void calcolatrice() {
       
       if(CINCHECK("Inserire un numero"))  {
          calcolatrice();
+         return;
          break;
       }
 
@@ -893,6 +1005,7 @@ void calcolatrice() {
       
       PAUSE();
       calcolatrice();
+      return;
       break;
 
    case 14:
@@ -901,6 +1014,7 @@ void calcolatrice() {
 
       if(CINCHECK("Inserire un numero")) {
          calcolatrice();
+         return;
          break;
       }
 
@@ -908,15 +1022,18 @@ void calcolatrice() {
 
       PAUSE();
       calcolatrice();
+      return;
       break;
    case 0:
       PURO("Verrai reindirizzato al menu principale");
       menuPrincipale();
+      return;
       break;
 
    default:
       ERRORE("Selezionare un'opzione accettabile");
       calcolatrice();
+      return;
       break;
    }
    return;
@@ -941,6 +1058,7 @@ void informazioni() {
 
    cout << endl; PAUSE();
    account();
+   return;
 }
 
 void crediti() {
@@ -958,6 +1076,7 @@ void crediti() {
    cout << endl;
    PAUSE();
    account();
+   return;
 }
 
 void impostazioni() {
@@ -979,6 +1098,7 @@ void impostazioni() {
    case 0:
       PURO("Verrai reindirizzato al menu dell'account");
       account();
+      return;
       break;
    case 1:
       CLEAR();
@@ -987,12 +1107,15 @@ void impostazioni() {
          debugMode = !debugMode;
          PURO("Impostazione modificata con successo");
          impostazioni();
+         return;
          break;
       } else {
          ERRORE("Password sbagliata");
          impostazioni();
+         return;
          break;
       }
+      return;
       break;
    case 2:
       CLEAR();
@@ -1001,16 +1124,20 @@ void impostazioni() {
          ownerMode = !ownerMode;
          PURO("Password modificata con successo");
          impostazioni();
+         return;
          break;
       } else {
          ERRORE("Password sbagliata");
          impostazioni();
+         return;
          break;
       }
+      return;
       break;
    default:
       ERRORE("Selezionare un'opzione accettabile!");
       impostazioni();
+      return;
       break;
    }
    return;
@@ -1028,20 +1155,25 @@ void account() {
    switch (sceltaINT) {
    case 1:
       impostazioni();
+      return;
       break;
    case 2:
       crediti();
+      return;
       break;
    case 3:
       informazioni();
+      return;
       break;
    case 0:
       PURO("Verrai reindirizzato al menu principale");
       menuPrincipale();
+      return;
       break;
    default:
       ERRORE("Selezionare un'opzione accettabile");
       account();
+      return;
       break;
    }
 }
@@ -1059,12 +1191,15 @@ void menuPrincipale() {
    switch (sceltaINT) {
    case 1:
       calcolatrice();
+      return;
       break;
    case 2:
       conversioni();
+      return;
       break;
    case 0:
       account();
+      return;
       break;
    case 100:
       PURO("Arrivederci! Torna presto");
@@ -1077,10 +1212,12 @@ void menuPrincipale() {
       DORMI(300);
       CLEAR();
       menuPrincipale();
+      return;
       break;
    default:
       ERRORE("Inserire un'opzione accettabile");
       menuPrincipale();
+      return;
       break;
    }
    return;
